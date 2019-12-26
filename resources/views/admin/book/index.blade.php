@@ -35,10 +35,19 @@
     <input type="submit" value="Hapus"  style="display:none">
 </form>
 
+@push('styles')
+<!-- DataTables -->
+<link rel="stylesheet" href="{{ asset('assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+
+@endpush
 
 @endsection
 
 @push('scripts')
+    <!-- DataTables -->
+    <script src="{{ asset('assets/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+
     <script>
         $(function (){ 
             $('#dataTable').DataTable({
@@ -48,7 +57,7 @@
                 columns:[
 
                     { data: 'DT_RowIndex',orderable:false, searchable:false},
-                    {data: 'title'},
+                    { data: 'title'},
                     { data: 'description'},
                     { data: 'author'},
                     { data: 'cover'},
